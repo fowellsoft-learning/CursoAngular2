@@ -1,3 +1,5 @@
+// ng g module MyCore
+
 // Añade la importacion del Optinal y SkipSelf que se usan más abajo
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
