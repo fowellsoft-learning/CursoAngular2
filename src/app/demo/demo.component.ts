@@ -30,14 +30,14 @@ export class DemoComponent implements OnInit {
 
 
   public saluda() {
-    this.mensaje = `Hola ${this.srv.Nombre}`;
+    this.mensaje = `Hola ${this.VM.Nombre}`;
   }
 
   /**
    * despide
    */
   public despide() {
-    this.mensaje = `Adios ${this.srv.Nombre}`;
+    this.mensaje = `Adios ${this.VM.Nombre}`;
   }
 
   /**
