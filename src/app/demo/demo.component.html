@@ -1,3 +1,11 @@
 <p>
-  demo works!
+  {{mensaje}}<br>
+  <input type="text" [(ngModel)]="VM.Nombre" /> <br>
+
+  <button (click)="saluda()">Saluda</button>
+  <button (click)="despide()">Despide</button>
+  <button (click)="di('algo')">Di algo</button>
+  <button (click)="add('segovia')">Add</button>
+  <button (click)="oculta()">{{visible?'Oculta':'Muestra'}}</button>
+
 </p>

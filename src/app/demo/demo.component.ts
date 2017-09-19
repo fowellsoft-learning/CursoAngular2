@@ -14,7 +14,8 @@ export class DemoComponent implements OnInit {
   listado = [ {id: 1, nombre: 'Madrid'},
               {id: 2, nombre: 'barcelona'},
               {id: 3, nombre: 'SEVILLA'},
-              {id: 4, nombre: 'Valencia'}] ;
+              {id: 4, nombre: 'Valencia'},
+              {id: 5, nombre: 'logroño'}] ;
 
   idProvincia: number = this.listado[0].id;
   visible: boolean = true;
@@ -45,6 +46,11 @@ export class DemoComponent implements OnInit {
    */
   public di(algo: string) {
     this.mensaje = `Dice ${algo}`;
+  }
+
+  public oculta() {
+
+    this.visible = !this.visible;
   }
 
   /**
