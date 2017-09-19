@@ -7,10 +7,14 @@ import { AppComponent } from './app.component';
 import { MyCoreModule, LoggerService } from '../my-core/index';
 
 import {MisDatosService} from './services/mis-datos.service';
+import { HomeComponent } from './home/home.component';
+import { DemoComponent } from './demo/demo.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,
