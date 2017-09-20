@@ -1,25 +1,26 @@
 <p>
-  {{mensaje}}<br>
+  {{mensaje | elipsis: 50}}<br>
   <input type="text" [(ngModel)]="VM.Nombre" /> <br>
 
   <button (click)="saluda()">Saluda</button>
   <button (click)="despide()">Despide</button>
   <button (click)="di('algo')">Di algo</button>
   <button (click)="add('segovia')">Add</button>
+  <button (click)="VM.ponMayusculas()">Pon mayúsculas</button>
   <button (click)="oculta()">{{visible?'Oculta':'Muestra'}}</button>
 
 </p>
 
 <!-- Directivas estructurales //-->
 <p [hidden]="!visible">Ahora me ves</p>
-<p *ngIf="visible">Ahroa existo</p>
+<p *ngIf="visible">Ahora existo</p>
 
 <p [class.esVisible]="visible">Mira el color</p>
 
 <ul>
-  <li *ngFor="let p of listado; let ind=index; let fondo=odd"
+  <li *ngFor="let p of listado | slice: -6; let ind=index; let fondo=odd"
       [style.background-color]="fondo ? 'LigthBlue' : 'Lavender'" >
-    {{ind + 1}} {{p.nombre}} {{p.id}})
+    {{ind + 1}} {{p.nombre | capitalize }} ({{p.id}})
   </li>
 </ul>
 
@@ -28,15 +29,14 @@
 
   <select [(ngModel)]="idProvincia">
     <option value="">-- Elige opción</option>
-    <option *ngFor="let p of listado" [value]="p.id">{{p.nombre}}</option>
+    <option *ngFor="let p of listado" [value]="p.id">{{p.nombre | uppercase}}</option>
   </select>
-
-  Seleccionado: {{idProvincia}}
+  Seleccionado: {{idProvincia}}  <br>
   <button (click)="add('Málaga')">Añade Málaga</button>
   <button (click)="add('A Coruña')">Añade A Coruña</button>
 
 </p>
 
 <p>
-  Calcula: 2 + 2 = {{2 + 2}} = {{calcula(2,2)}}
+  Calcula: 2 + 2 = {{2 + 2}} = {{calcula(2,2) | currency: 'EUR' : false : '4.2-2' | lowercase }}
 </p>

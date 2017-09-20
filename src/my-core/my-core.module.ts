@@ -1,3 +1,4 @@
+import { CADENAS_PIPES } from './pipes/cadenas.pipe';
 // ng g module MyCore
 
 // Añade la importacion del Optinal y SkipSelf que se usan más abajo
@@ -8,7 +9,11 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule
   ],
-  declarations: []
+  // Añade el CADENAS_PIPES (definido dentro del cadenas.pipe) al módulo de MyCore para que se pueda
+  // usar en cualquier parte de la aplicación
+  declarations: [CADENAS_PIPES],
+  // Exporta para que sea visible en el resto de módulo que importen el módulo myCore
+  exports: [CADENAS_PIPES]
 })
 export class MyCoreModule {
 
