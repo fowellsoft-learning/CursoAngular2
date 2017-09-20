@@ -1,8 +1,8 @@
-import { CadenasPipe } from './cadenas.pipe';
+import { ElipsisPipe } from './cadenas.pipe';
 
-describe('CadenasPipe', () => {
+describe('ElipsisPipe', () => {
   it('create an instance', () => {
-    const pipe = new CadenasPipe();
+    const pipe = new ElipsisPipe();
     expect(pipe).toBeTruthy();
   });
 });

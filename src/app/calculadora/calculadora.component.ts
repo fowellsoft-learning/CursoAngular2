@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+// Los enumerados van siempre fuera de la clase
 enum Operacion { Sumar, Restar, Multiplicar, Dividir }
 
 @Component({
@@ -13,43 +14,55 @@ export class CalculadoraComponent implements OnInit {
   public resultado: number = 0;
   private operacion: Operacion;
   private aux: number;
+  private pulsadoIgual: boolean = true;
 
   constructor() { }
 
   public reset() { this.resultado = 0; }
 
-  public sumar() {
-    this.aux = this.resultado;
-    this.resultado = 0;
+  public sumar()
+  {
+    this.comun();
     this.operacion = Operacion.Sumar;
   }
 
-  public restar() {
-    this.aux = this.resultado;
-    this.resultado = 0;
+  public restar()
+  {
     this.operacion = Operacion.Restar;
   }
 
-  public multiplicar() {
-    this.aux = this.resultado;
-    this.resultado = 0;
+  public multiplicar()
+  {
+    this.comun();
     this.operacion = Operacion.Multiplicar;
   }
 
-  public dividir() {
-    this.aux = this.resultado;
-    this.resultado = 0;
+  public dividir()
+  {
+    this.comun();
     this.operacion = Operacion.Dividir;
   }
 
-  public add(n: number)
+  private comun()
   {
+    this.aux = this.resultado;
+    this.resultado = 0;
+  }
+
+  public add(n: any)
+  {
+    if (this.pulsadoIgual)
+    {
+      this.comun();
+      this.pulsadoIgual = false;
+    }
+
     this.resultado = Number( '' + this.resultado + n );
   }
 
   public calcular()
   {
-    switch( this.operacion)
+    switch (this.operacion)
     {
       case Operacion.Sumar:
         this.resultado += this.aux;
@@ -64,6 +77,8 @@ export class CalculadoraComponent implements OnInit {
       this.resultado = this.aux / this.resultado;
         break;
     }
+
+    this.pulsadoIgual = true;
   }
 
   ngOnInit() {}
