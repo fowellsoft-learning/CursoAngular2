@@ -59,6 +59,7 @@ export class DemoComponent implements OnInit {
   public add(provincia: string) {
     this.listado.push({id: this.listado.length + 1, nombre: provincia});
     this.idProvincia = this.listado[this.listado.length - 1].id;
+    this.mensaje = this.listado[this.listado.length - 1].nombre;
   }
 
   public calcula(a: number, b: number) { return a + b; }
