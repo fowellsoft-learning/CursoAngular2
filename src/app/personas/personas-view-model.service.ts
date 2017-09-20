@@ -14,7 +14,7 @@ export class PersonasViewModelService
   private idOriginal: number = null;
   private PK = 'id';
 
-  constructor(log: LoggerService) { }
+  constructor(private log: LoggerService) { }
 
   // Se publica para que se pueda ver pero no modificar
   get Listado() { return this.listado; }
@@ -77,17 +77,17 @@ export class PersonasViewModelService
     {
       this.log.error('Elemento no encontrado');
     }
+  }
 
-    cancel ()
-    {
-      this.elemento = {};
-      this.idOriginal = null;
-      this.list();
-    }
+  cancel()
+  {
+    this.elemento = {};
+    this.idOriginal = null;
+    this.list();
+  }
 
-    send()
-    {
-      
-    }
+  send()
+  {
+    
   }
 }
