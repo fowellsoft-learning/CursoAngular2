@@ -11,6 +11,8 @@ import {MisDatosService} from './services/mis-datos.service';
 import { HomeComponent } from './home/home.component';
 import { DemoComponent } from './demo/demo.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
+import { PersonasComponent } from './personas/personas.component';
+import { PersonasViewModelService } from './personas/personas-view-model.service';
 
 @NgModule({
   // En los declaration se añaden - componentes, pipes y directivas, lo que se usa en html
@@ -19,6 +21,7 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
     HomeComponent,
     DemoComponent,
     CalculadoraComponent,
+    PersonasComponent,
   ],
   imports: [ // Importa los modulos que usarua este módulo
     BrowserModule,
@@ -27,7 +30,7 @@ import { CalculadoraComponent } from './calculadora/calculadora.component';
   ],
   // Servicios que usan en el módulo se pueden difinir en el módulo y seran visibles en todo el módulo o en el componente
   // y será visible sólo dentro del componente
-  providers: [LoggerService, MisDatosService],
+  providers: [LoggerService, MisDatosService, PersonasViewModelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
