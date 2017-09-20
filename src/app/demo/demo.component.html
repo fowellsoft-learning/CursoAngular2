@@ -9,3 +9,34 @@
   <button (click)="oculta()">{{visible?'Oculta':'Muestra'}}</button>
 
 </p>
+
+<!-- Directivas estructurales //-->
+<p [hidden]="!visible">Ahora me ves</p>
+<p *ngIf="visible">Ahroa existo</p>
+
+<p [class.esVisible]="visible">Mira el color</p>
+
+<ul>
+  <li *ngFor="let p of listado; let ind=index; let fondo=odd"
+      [style.background-color]="fondo ? 'LigthBlue' : 'Lavender'" >
+    {{ind + 1}} {{p.nombre}} {{p.id}})
+  </li>
+</ul>
+
+
+<p>
+
+  <select [(ngModel)]="idProvincia">
+    <option value="">-- Elige opción</option>
+    <option *ngFor="let p of listado" [value]="p.id">{{p.nombre}}</option>
+  </select>
+
+  Seleccionado: {{idProvincia}}
+  <button (click)="add('Málaga')">Añade Málaga</button>
+  <button (click)="add('A Coruña')">Añade A Coruña</button>
+
+</p>
+
+<p>
+  Calcula: 2 + 2 = {{2 + 2}} = {{calcula(2,2)}}
+</p>
