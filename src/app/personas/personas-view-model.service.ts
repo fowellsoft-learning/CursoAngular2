@@ -84,7 +84,7 @@ export class PersonasViewModelService
     if (!window.confirm('¿Seguro?')) { return ;}
 
     const ind = this.listado.findIndex(elem => elem[this.PK] == id);
-    if (ind)
+    if (ind > -1)
     {
       this.listado.splice(ind, 1);
       this.list();

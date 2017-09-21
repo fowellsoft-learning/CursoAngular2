@@ -15,6 +15,8 @@ import { DemoComponent } from './demo/demo.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { PERSONAS_COMPONENT } from './personas/personas.component';
 import { PersonasViewModelService } from './personas/personas-view-model.service';
+import { VALIDACIONES_PERSONALIZADA } from './../my-core/directives/validaciones.directive';
+
 
 @NgModule({
   // En los declaration se añaden - componentes, pipes y directivas, lo que se usa en html
@@ -24,6 +26,7 @@ import { PersonasViewModelService } from './personas/personas-view-model.service
     DemoComponent,
     CalculadoraComponent,
     PERSONAS_COMPONENT,
+    VALIDACIONES_PERSONALIZADA
   ],
   imports: [ // Importa los modulos que usarua este módulo
     BrowserModule,
