@@ -50,7 +50,8 @@ export class PersonasViewModelService
 
   edit(id: number)
   {
-    let result = this.listado.find(elem => elem[this.PK] == id);
+    // Si la variable sólo se asigna una vez y no se vuelva a asignar lo correcto es definirla como constante
+    const result = this.listado.find(elem => elem[this.PK] == id);
     if (result)
     {
       this.elemento = Object.assign({}, result);
@@ -63,11 +64,26 @@ export class PersonasViewModelService
     }
   }
 
+  view(id: number)
+  {
+    // Si la variable sólo se asigna una vez y no se vuelva a asignar lo correcto es definirla como constante
+    const result = this.listado.find(elem => elem[this.PK] == id);
+    if (result)
+    {
+      this.elemento = Object.assign({}, result);
+      this.modo = 'view';
+    }
+    else
+    {
+      this.log.error('Elemento no encontrado');
+    }
+  }
+
   delete(id: number)
   {
     if (!window.confirm('¿Seguro?')) { return ;}
 
-    let ind = this.listado.findIndex(elem => elem[this.PK] == id);
+    const ind = this.listado.findIndex(elem => elem[this.PK] == id);
     if (ind)
     {
       this.listado.splice(ind, 1);
@@ -88,6 +104,27 @@ export class PersonasViewModelService
 
   send()
   {
-    
+    switch (this.modo)
+    {
+      case 'add':
+        this.listado.push(this.elemento);
+        this.cancel();
+        break;
+      case 'edit':
+        const ind = this.listado.findIndex(elem => elem[this.PK] == this.idOriginal);
+        if (ind)
+        {
+          this.listado[ind] = this.elemento;
+          this.cancel();
+        }
+        else
+        {
+          this.log.error('Elemento no encontrado');
+        }
+        break;
+      case 'view':
+        this.cancel();
+        break;
+    }
   }
 }

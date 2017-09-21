@@ -13,7 +13,7 @@ import { MisDatosService } from './services/mis-datos.service';
 import { HomeComponent } from './home/home.component';
 import { DemoComponent } from './demo/demo.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
-import { PersonasComponent } from './personas/personas.component';
+import { PERSONAS_COMPONENT } from './personas/personas.component';
 import { PersonasViewModelService } from './personas/personas-view-model.service';
 
 @NgModule({
@@ -23,7 +23,7 @@ import { PersonasViewModelService } from './personas/personas-view-model.service
     HomeComponent,
     DemoComponent,
     CalculadoraComponent,
-    PersonasComponent,
+    PERSONAS_COMPONENT,
   ],
   imports: [ // Importa los modulos que usarua este módulo
     BrowserModule,
