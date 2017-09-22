@@ -14,8 +14,9 @@ import { HomeComponent } from './home/home.component';
 import { DemoComponent } from './demo/demo.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { PERSONAS_COMPONENT } from './personas/personas.component';
-import { PersonasViewModelService } from './personas/personas-view-model.service';
+import { PersonasViewModelService, PersonasViewModelDAOService } from './personas/personas-view-model.service';
 import { VALIDACIONES_PERSONALIZADA } from './../my-core/directives/validaciones.directive';
+import { PersonasDAOService } from './personas/personas-dao.service';
 
 
 @NgModule({
@@ -35,7 +36,9 @@ import { VALIDACIONES_PERSONALIZADA } from './../my-core/directives/validaciones
   ],
   // Servicios que usan en el módulo se pueden difinir en el módulo y seran visibles en todo el módulo o en el componente
   // y será visible sólo dentro del componente
-  providers: [LoggerService, MisDatosService, PersonasViewModelService],
+  providers: [ LoggerService, MisDatosService,
+    {provide: PersonasViewModelService, useClass: PersonasViewModelDAOService},
+    PersonasDAOService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
